@@ -1,0 +1,127 @@
+:root {
+    --color-pink: #ed1a7a;
+    --color-black: #210310;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #030517 0%, #00196F 50%);
+    height: 100vh;
+    width: 100%;
+    font-family: "Space Mono", sans-serif;
+}
+
+#webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 4;
+}
+
+#visualiser {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    z-index: 2;
+}
+
+#visualiserReversed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    transform: scale(-1, 1);
+    z-index: 2;
+}
+
+#yellowgradient {
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    width: 100vw;
+    height: 100vw;
+    background: radial-gradient(circle, rgba(0, 25, 111, 0) 0%, #ed1a7a 100%);
+    background-size: 500%;
+    background-position: center -50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+#gradientPink {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vh;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(228, 157, 48, 1) 0%, rgba(0, 25, 111, 0) 60%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#loader {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 5;
+    background-color: var(--color-pink);
+    color: var(--color-black);
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-areas:
+        "l . c"
+        ". . ."
+        "n b b";
+    align-items: end;
+    justify-content: end;
+    padding: 30px;
+    gap: 10px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.loader__open {
+    top: 0;
+    height: 100vh;
+}
+
+.loader__close {
+    top: -10vh;
+    height: 0vh;
+}
+
+#loader__text {
+    grid-area: c;
+}
+
+#loader__number {
+    grid-area: n;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 6rem;
+    line-height: 5rem;
+}
+
+#loader__bar {
+    grid-area: b;
+    width: 100%;
+    height: 5px;
+    margin-left: auto;
+    background-color: var(--color-black);
+}
