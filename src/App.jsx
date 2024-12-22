@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <Audio play={play} />
-      {/* <Canvas /> */}
+      <Canvas play={play}/>
     </>
   )
 }
