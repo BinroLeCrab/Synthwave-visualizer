@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Audio from "./components/Audio/Audio"
 import Canvas from "./components/canvas/canvas"
+import Start from "./components/Start/Start";
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('keydown', onSpacePress);
-    
+
     return () => {
       window.removeEventListener("keydown", onSpacePress);
     }
@@ -24,8 +25,9 @@ function App() {
 
   return (
     <>
+      <Start play={play}/>
       <Audio play={play} />
-      <Canvas play={play}/>
+      <Canvas play={play} />
     </>
   )
 }
