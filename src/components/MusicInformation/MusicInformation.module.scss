@@ -4,10 +4,16 @@
     gap: 16px;
 
     color: white;
+    font-size: 0.875rem;
     filter: drop-shadow(0 0 9px var( --color-pink));
 }
 
 .Music__cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/asset/cover.webp");
+    background-size: cover;
     width: 34px;
     height: 34px;
     border-radius: 4px;
@@ -15,11 +21,27 @@
 }
 
 .Music__info {
+    display: flex;
     width: 300px;
     overflow: hidden;
     border-bottom: 2px solid white;
 }
 
 .Music__title {
-    text-wrap: nowrap
+    text-wrap: nowrap;
+    padding-right: 30px;
+    transform: translate(0, 0);
+    animation: 18s linear 1s infinite musicSlide;
+}
+
+@keyframes musicSlide {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(0%, 0);
+    }
+    100% {
+        transform: translate(-200%, 0);
+    }
 }
