@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
-import Audio from "./components/Audio/Audio"
-import Canvas from "./components/canvas/canvas"
-import Start from "./components/Start/Start";
+import { useEffect, useState } from "react";
+import Audio from "./components/Audio/Audio";
+import Canvas from "./components/Canvas/Canvas";
+import Gradient from "./components/Gradient/Gradient";
+import Overlay from "./components/Overlay/Overlay";
 
 function App() {
 
@@ -25,7 +26,8 @@ function App() {
 
   return (
     <>
-      <Start play={play}/>
+      <Gradient />
+      <Overlay play={play} />
       <Audio play={play} />
       <Canvas play={play} />
     </>

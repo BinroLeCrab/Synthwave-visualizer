@@ -14,7 +14,7 @@ const Canvas = ({play}) => {
         playRef.current = play;
     }, [play]);
 
-    return <canvas ref={canvasRef}></canvas>;
+    return <canvas className={s["webgl"]} ref={canvasRef}></canvas>;
 };
 
 export default Canvas;
