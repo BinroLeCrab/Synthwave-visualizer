@@ -17,5 +17,9 @@
 .Music__info {
     width: 300px;
     overflow: hidden;
-    display: flex;
+    border-bottom: 2px solid white;
+}
+
+.Music__title {
+    text-wrap: nowrap
 }
