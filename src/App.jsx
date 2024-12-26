@@ -3,6 +3,7 @@ import Audio from "./components/Audio/Audio";
 import Canvas from "./components/Canvas/Canvas";
 import Gradient from "./components/Gradient/Gradient";
 import Overlay from "./components/Overlay/Overlay";
+import { toggleFullScreen } from "./utils/utils";
 
 function App() {
 
@@ -13,6 +14,14 @@ function App() {
       setPlay(play ? false : true);
     }
   }
+
+  document.addEventListener(
+    "keydown", (e) => {
+      if (e.keyCode == 70 || e.keyCode == 27) {
+        toggleFullScreen(e.keyCode);
+      }
+    },
+  );
 
   useEffect(() => {
     window.addEventListener('keydown', onSpacePress);
