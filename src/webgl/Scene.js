@@ -40,7 +40,7 @@ class Scene {
         this.sun = new Sun().object;
         
         this.scene.add(this.sun);
-        console.log(this.sun.position);
+        // console.log(this.sun.position);
 
         this.light = new Light().group;
         this.scene.add(this.light);
@@ -68,11 +68,11 @@ class Scene {
 
     setupScene() {
         this.scene = new THREE.Scene();
-        console.log("chargement de la scène");
+        // console.log("chargement de la scène");
 
         this.fog = new THREE.Fog("#F3CE78", 1, 2);
         this.scene.fog = this.fog;
-        console.log("ajout du brouillard");
+        // console.log("ajout du brouillard");
     }
 
     setupCamera() {
@@ -88,7 +88,7 @@ class Scene {
         )
 
         this.camera.position.set(0, 0.1, 1.1);
-        console.log("position de la caméra");
+        // console.log("position de la caméra");
     }
 
     setupRenderer() {
@@ -117,7 +117,7 @@ class Scene {
          */
         this.renderPass = new RenderPass(this.scene, this.camera);
         this.effectComposer.addPass(this.renderPass);
-        console.log("ajout du rendu");
+        // console.log("ajout du rendu");
 
         /**
          * Add the rgbShift pass to the composer
@@ -127,7 +127,7 @@ class Scene {
         this.rgbShiftPass.uniforms['amount'].value = 0.0008;
 
         this.effectComposer.addPass(this.rgbShiftPass);
-        console.log("ajout du rgbShift");
+        // console.log("ajout du rgbShift");
     }
 
     tick = () => {
