@@ -28,7 +28,6 @@ const Visualiser = ({ play, audioRef }) => {
         const visualiser = new audioVisualiser(visualiserRef.current, playRef, context, src, analyser);
         const visualiserReversed = new audioVisualiser(visualiserReversedRef.current, playRef, context, src, analyser);
 
-        console.log(src);
     }, [audioRef]);
 
     useEffect(() => {
@@ -39,12 +38,6 @@ const Visualiser = ({ play, audioRef }) => {
             });
         }
         playRef.current = play;
-    }, [play]);
-
-    useEffect(() => {
-        console.log(audioRef.current);
-        console.log(visualiserRef.current);
-        console.log(visualiserReversedRef.current);
     }, [play]);
 
     return (
