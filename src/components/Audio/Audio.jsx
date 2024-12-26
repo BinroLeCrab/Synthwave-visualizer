@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import s from "./Audio.module.scss";
 
-const Audio = ({ play, audioRef }) => {
+const Audio = ({ play, audioRef, muted }) => {
 
     const [first, setFirst] = useState(true);
 
     useEffect(() => {
+        // audioRef.current.volume = 0;
 
         if (play === false) {
             if (first) {
@@ -15,19 +16,13 @@ const Audio = ({ play, audioRef }) => {
                 audioRef.current.pause();
             }
         } else {
-            // if (context.state === 'suspended') {
-            //     context.resume().then(() => {
-            //         console.log('AudioContext resumed');
-            //         // renderFrame();
-            //     });
-            // }
             console.log('play');
             audioRef.current.play();
         }
     }, [play]);
 
     return (
-        <audio className={s.audio} ref={audioRef} controls loop>
+        <audio className={s.audio} ref={audioRef} controls loop muted={muted}>
             <source src="asset/audio/Nightcall.mp3" type="audio/mpeg" />
             Your browser does not support the audio element.
         </audio>

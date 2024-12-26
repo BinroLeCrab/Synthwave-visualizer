@@ -9,6 +9,7 @@ import Visualiser from "./components/Visualiser/Visualiser";
 function App() {
 
   const [play, setPlay] = useState(false);
+  const [muted, setMuted] = useState(false);
   const audioRef = useRef();
 
   const onSpacePress = (e) => {
@@ -39,8 +40,8 @@ function App() {
     <>
       <Gradient />
       <Visualiser play={play} audioRef={audioRef}/>
-      <Overlay play={play} />
-      <Audio play={play} audioRef={audioRef}/>
+      <Overlay play={play} muted={muted} setMuted={setMuted}/>
+      <Audio play={play} audioRef={audioRef} muted={muted}/>
       <Canvas play={play} />
     </>
   )

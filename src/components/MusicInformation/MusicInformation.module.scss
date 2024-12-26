@@ -31,14 +31,14 @@
     text-wrap: nowrap;
     padding-right: 30px;
     transform: translate(0, 0);
-    animation: 20s linear 1s infinite musicSlide;
+    animation: 18s linear 1s infinite musicSlide;
 }
 
 @keyframes musicSlide {
     0% {
         transform: translate(0, 0);
     }
-    30% {
+    20% {
         transform: translate(0%, 0);
     }
     100% {
