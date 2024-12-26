@@ -7,7 +7,6 @@ const Audio = ({ play }) => {
     const [first, setFirst] = useState(true);
 
     useEffect(() => {
-        console.log('play depuis audio', play);
 
         if (play === false) {
             if (first) {

@@ -131,7 +131,6 @@ class Scene {
     }
 
     tick = () => {
-        console.log(this.play.current);
 
         this.elapsedTime = this.clock.getElapsedTime();
 
