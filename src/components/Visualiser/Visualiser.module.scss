@@ -1,0 +1,19 @@
+.Visualiser__container {
+    position: fixed;
+    height: 100vh;
+    z-index: 2;
+}
+
+.Visualiser__item {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+}
+
+.Visualiser__item--reversed {
+    left: inherit;
+    right: 0;
+    transform: scale(-1, 1);
+}

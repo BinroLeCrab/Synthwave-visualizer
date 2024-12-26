@@ -13,3 +13,15 @@ export const toggleFullScreen = (keyCode) => {
         }
     }
 }
+
+export const puissanceOfTwo = (n) => {
+    let i = 1;
+    let calcul = 2;
+    let result = 0;
+    while (calcul < n) {
+        result = calcul;
+        calcul = Math.pow(2, i);
+        i++;
+    }
+    return result;
+}

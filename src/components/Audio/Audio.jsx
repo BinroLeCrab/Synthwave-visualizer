@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import s from "./Audio.module.scss";
 
-const Audio = ({ play }) => {
+const Audio = ({ play, audioRef }) => {
 
-    const audioRef = useRef();
     const [first, setFirst] = useState(true);
 
     useEffect(() => {

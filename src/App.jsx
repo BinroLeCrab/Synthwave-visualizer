@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Audio from "./components/Audio/Audio";
 import Canvas from "./components/Canvas/Canvas";
 import Gradient from "./components/Gradient/Gradient";
 import Overlay from "./components/Overlay/Overlay";
 import { toggleFullScreen } from "./utils/utils";
+import Visualiser from "./components/Visualiser/Visualiser";
 
 function App() {
 
   const [play, setPlay] = useState(false);
+  const audioRef = useRef();
 
   const onSpacePress = (e) => {
     if (e.keyCode == 32) {
@@ -36,8 +38,9 @@ function App() {
   return (
     <>
       <Gradient />
+      <Visualiser play={play} audioRef={audioRef}/>
       <Overlay play={play} />
-      <Audio play={play} />
+      <Audio play={play} audioRef={audioRef}/>
       <Canvas play={play} />
     </>
   )
