@@ -1,9 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import s from "./Visualiser.module.scss";
-import audioVisualiser from "../../audioVisualiser/audioVisualiser";
+import audioVisualiser from "../../utils/audioVisualiser";
 const Visualiser = ({ play, audioRef }) => {
-
-    const context = new AudioContext();
 
     const visualiserRef = useRef();
     const visualiserReversedRef = useRef();
@@ -11,32 +9,10 @@ const Visualiser = ({ play, audioRef }) => {
     const playRef = useRef(play);
 
     useEffect(() => {
-        if (context.state === 'suspended') {
-            context.resume().then(() => {
-                console.log('AudioContext resumed');
-                // renderFrame();
-            });
-        }
-    });
+        audioVisualiser.setup(visualiserRef.current, visualiserReversedRef.current, playRef, audioRef.current);
+    }, []);
 
     useEffect(() => {
-        const analyser = context.createAnalyser();
-        const src = context.createMediaElementSource(audioRef.current);
-        // src.connect(analyser);
-        // analyser.connect(context.destination);
-
-        const visualiser = new audioVisualiser(visualiserRef.current, playRef, context, src, analyser);
-        const visualiserReversed = new audioVisualiser(visualiserReversedRef.current, playRef, context, src, analyser);
-
-    }, [audioRef]);
-
-    useEffect(() => {
-        if (context.state === 'suspended') {
-            context.resume().then(() => {
-                console.log('AudioContext resumed');
-                // renderFrame();
-            });
-        }
         playRef.current = play;
     }, [play]);
 

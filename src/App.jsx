@@ -10,11 +10,13 @@ function App() {
 
   const [play, setPlay] = useState(false);
   const [muted, setMuted] = useState(false);
+  const [hasClicked, setHasClicked] = useState(false);
   const audioRef = useRef();
 
   const onSpacePress = (e) => {
     if (e.keyCode == 32) {
       setPlay(play ? false : true);
+      !hasClicked && setHasClicked(true);
     }
   }
 
@@ -39,7 +41,7 @@ function App() {
   return (
     <>
       <Gradient />
-      <Visualiser play={play} audioRef={audioRef}/>
+      {hasClicked && <Visualiser play={play} audioRef={audioRef}/>}
       <Overlay play={play} muted={muted} setMuted={setMuted}/>
       <Audio play={play} audioRef={audioRef} muted={muted}/>
       <Canvas play={play} />
