@@ -41,7 +41,7 @@ function App() {
   return (
     <>
       <Gradient />
-      {hasClicked && <Visualiser play={play} audioRef={audioRef}/>}
+      <Visualiser play={play} audioRef={audioRef} hasClicked={hasClicked}/>
       <Overlay play={play} muted={muted} setMuted={setMuted}/>
       <Audio play={play} audioRef={audioRef} muted={muted}/>
       <Canvas play={play} />
